@@ -1,0 +1,86 @@
+html {
+  --height: calc(28vw / (5 + var(--num-discs)));
+  --default-bottom: 0vw;
+}
+
+#canvas {
+  width: 90vw;
+  height: 30vw;
+  position: relative;
+  background: #e0e0d0;
+}
+
+#numMoves {
+  width: 15em;
+  height: 2em;
+  left: calc((90vw - 15em) / 2);
+  position: absolute;
+  background: white;
+  text-align: center;
+  font-weight: 900;
+  font-family: sans-serif;
+  line-height: 2em;
+  border: 0.1vw solid black;
+}
+
+#controls {
+  background: white;
+  text-align: center;
+  line-height: 2em;
+  border: 0.1vw solid black;
+}
+
+#controls > * {
+  font-weight: 900;
+  font-family: sans-serif;
+}
+
+div.base {
+  position: absolute;
+  --width: calc(85vw / var(--num-pegs));
+  height: var(--height);
+  width: var(--width);
+  left: calc(var(--center) - var(--width) * 0.5);
+  bottom: var(--default-bottom);
+  background-image: linear-gradient(
+    to bottom right,
+    white -30%,
+    black,
+    black 130%
+  );
+  border-radius: 2vw;
+  border: 0.1vw solid black;
+}
+
+div.peg {
+  position: absolute;
+  --width: calc(85vw / (var(--num-discs) + 3) / var(--num-pegs));
+  left: calc(var(--center) - var(--width) * 0.5);
+  background: linear-gradient(
+    to bottom right,
+    white -10%,
+    brown 20%,
+    black 100%
+  );
+  bottom: var(--default-bottom);
+  border-radius: 2vw;
+  border: 0.1vw solid black;
+  width: var(--width);
+}
+
+div.disc {
+  line-height: var(--height);
+  box-sizing: border-box;
+  height: var(--height);
+  width: var(--width);
+  left: calc(var(--center) - var(--width) * 0.5);
+  bottom: calc(var(--default-bottom) + var(--position) * var(--height));
+  position: absolute;
+  border-radius: 2vw;
+  border: 0.1vw solid black;
+  text-align: center;
+  font-size: calc(0.8 * var(--height));
+  font-weight: 900;
+  font-family: sans-serif;
+  transition-property: all;
+}
